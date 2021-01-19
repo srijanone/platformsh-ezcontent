@@ -1,0 +1,52 @@
+# The name of this application, which must be unique within a project.
+name: "gatsby"
+
+# The type key specifies the language and version for your application.
+type: "nodejs:12"
+
+# The hooks that will be triggered when the package is deployed.
+hooks:
+  build: |
+      ln -s eslintcache/.eslintcache .eslintcache
+  deploy: |
+      cat /run/config.json | jq .info.limits
+  post_deploy: |
+      if [ "$PLATFORM_BRANCH" = master ]; then
+          npm run gatsby-build
+      fi
+  # post_deploy: |
+  #     npm run gatsby-build
+
+disk: 1024
+
+# The configuration of the application when it is exposed to the web.
+web:
+    commands:
+        start: |
+            if [ "$PLATFORM_BRANCH" = master ]; then
+                npm run serve -- -p $PORT
+            # Run development server on non-production environments.
+            else
+                npm run develop
+            fi
+  # locations:
+  #   '/':
+  #       # The public directory of the application relative to its root.
+  #       root: 'public'
+  #       index: ['index.html']
+  #       scripts: false
+  #       allow: true
+
+mounts:
+  "/.cache":
+    source: local
+    source_path: cache
+  "/.config":
+    source: local
+    source_path: config
+  "public":
+    source: local
+    source_path: public
+  "eslintcache":
+    source: local
+    source_path: eslintcache
