@@ -1,6 +1,5 @@
 const config = require("platformsh-config").config();
-// backend_route = `${config.variablesDef.DRUPAL_HOST}`;
-backend_route = `https://backend.test-t6dnbai-25bv36tlj3iqa.us-2.platformsh.site`;
+backend_route = `${config.variablesDef.DRUPAL_HOST}`;
 auth_token_route = `${backend_route}/oauth/token`;
 jsonapi_route = `${backend_route}/jsonapi`;
 const fetch = require('node-fetch');
