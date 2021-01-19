@@ -49,7 +49,6 @@ info:
           Composer-based build for Drupal<br />
           Multi-app configuration<br />
           Delayed SSG build (post deploy hook)<br />
-
 plans:
     exclude:
         - small
