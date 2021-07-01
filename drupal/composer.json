@@ -11,7 +11,43 @@
       "assets": {
         "type": "composer",
         "url": "https://asset-packagist.org"
-      }
+      },
+      "colorbutton": {
+        "type": "package",
+        "package": {
+            "name": "ckeditor/colorbutton",
+            "version": "4.14.0",
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "colorbutton"
+            },
+            "dist": {
+                "url": "https://download.ckeditor.com/colorbutton/releases/colorbutton_4.14.1.zip",
+                "type": "zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            }
+        }
+      },
+      "panelbutton": {
+          "type": "package",
+          "package": {
+              "name": "ckeditor/panelbutton",
+              "version": "4.14.0",
+              "type": "drupal-library",
+              "extra": {
+                  "installer-name": "panelbutton"
+              },
+              "dist": {
+                  "url": "https://download.ckeditor.com/panelbutton/releases/panelbutton_4.14.1.zip",
+                  "type": "zip"
+              },
+              "require": {
+                  "composer/installers": "~1.0"
+              }
+          }
+        }
     },
     "config": {
       "sort-packages": true,
